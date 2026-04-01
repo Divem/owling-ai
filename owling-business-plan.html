@@ -309,12 +309,14 @@ p {
 strong { color: var(--navy); }
 
 .card {
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 20px;
   padding: 36px;
   margin: 28px 0;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   position: relative;
   overflow: hidden;
 }
@@ -343,9 +345,11 @@ strong { color: var(--navy); }
   overflow-x: auto;
   margin: 28px 0;
   border-radius: 20px;
-  border: 1px solid var(--border-soft);
-  background: var(--card-white);
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  border: 1px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
 table {
@@ -388,12 +392,14 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 }
 
 .highlight-item {
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 18px;
   padding: 28px 20px;
   text-align: center;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   position: relative;
   overflow: hidden;
@@ -410,7 +416,8 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 
 .highlight-item:hover {
   transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 12px 40px rgba(123,104,238,0.12);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.8);
 }
 
 .highlight-item:hover::after { opacity: 1; }
@@ -450,11 +457,13 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 
 .feature-list li {
   padding: 28px;
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 20px;
   margin-bottom: 16px;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   position: relative;
   overflow: hidden;
@@ -475,7 +484,8 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 
 .feature-list li:hover {
   transform: translateX(8px);
-  box-shadow: 0 8px 32px rgba(123,104,238,0.1);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.8);
 }
 
 .feature-list li:hover::before { opacity: 1; }
@@ -513,7 +523,7 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
   transition: background 0.2s;
 }
 
-.privacy-list li:hover { background: rgba(200,182,255,0.06); }
+.privacy-list li:hover { background: rgba(255,255,255,0.6); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
 
 .privacy-list li::before {
   content: counter(privacy);
@@ -554,16 +564,19 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
   position: relative;
   margin-bottom: 28px;
   padding: 28px;
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.3s;
 }
 
 .timeline-item:hover {
-  box-shadow: 0 8px 32px rgba(123,104,238,0.1);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
   transform: translateX(4px);
+  background: rgba(255,255,255,0.8);
 }
 
 .timeline-item::before {
@@ -676,16 +689,19 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
   gap: 16px;
   align-items: center;
   padding: 20px 24px;
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 16px;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.3s;
 }
 
 .team-card:hover {
-  box-shadow: 0 8px 32px rgba(123,104,238,0.1);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
   transform: translateY(-2px);
+  background: rgba(255,255,255,0.8);
 }
 
 .team-card .role {
@@ -728,10 +744,12 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 
 .flywheel-item {
   padding: 28px;
-  background: var(--card-white);
-  border: 1px solid var(--border-soft);
+  background: rgba(255,255,255,0.65);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 20px;
-  box-shadow: 0 4px 24px rgba(90,79,207,0.04);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
   transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
   position: relative;
   overflow: hidden;
@@ -754,7 +772,8 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 
 .flywheel-item:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 40px rgba(123,104,238,0.12);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.8);
 }
 
 .flywheel-item .fw-title {
@@ -787,12 +806,15 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 }
 
 .emotional-callout {
-  background: linear-gradient(135deg, rgba(255,107,107,0.06), rgba(200,182,255,0.08));
-  border: 1px solid rgba(200,182,255,0.2);
+  background: rgba(255,255,255,0.45);
+  backdrop-filter: blur(32px) saturate(200%);
+  -webkit-backdrop-filter: blur(32px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.5);
   border-radius: 20px;
   padding: 40px;
   margin: 40px 0;
   text-align: center;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.06), inset 0 1px 0 rgba(255,255,255,0.6);
 }
 
 .emotional-callout .big-text {
