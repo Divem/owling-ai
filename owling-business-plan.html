@@ -56,7 +56,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(170deg, #1A1A3E 0%, #2D1B69 25%, #5A4FCF 50%, #FF6B6B 85%, #FFB4A2 100%);
+  background: #000000;
   color: white;
   padding: 60px 24px;
   position: relative;
@@ -68,24 +68,24 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 600px 600px at 20% 80%, rgba(255,217,61,0.12) 0%, transparent 70%),
-    radial-gradient(ellipse 500px 500px at 80% 20%, rgba(200,182,255,0.15) 0%, transparent 70%),
-    radial-gradient(ellipse 400px 400px at 50% 50%, rgba(255,255,255,0.04) 0%, transparent 60%);
-  animation: aurora 12s ease-in-out infinite alternate;
+    radial-gradient(ellipse 80% 60% at 50% 100%, rgba(255,107,107,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(200,182,255,0.06) 0%, transparent 70%);
+  animation: breathe 8s ease-in-out infinite alternate;
 }
 
-@keyframes aurora {
-  0% { opacity: 0.6; transform: scale(1) rotate(0deg); }
-  100% { opacity: 1; transform: scale(1.05) rotate(1deg); }
+@keyframes breathe {
+  0% { opacity: 0.4; }
+  100% { opacity: 1; }
 }
 
 .hero-content { position: relative; z-index: 1; }
 
 .hero .eyebrow {
-  font-size: 0.8rem;
-  letter-spacing: 0.5em;
-  opacity: 0.5;
-  margin-bottom: 24px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  color: var(--coral);
+  margin-bottom: 28px;
   text-transform: uppercase;
 }
 
@@ -96,48 +96,44 @@ body {
   letter-spacing: 0.04em;
   margin-bottom: 4px;
   line-height: 1.1;
-  text-shadow: 0 4px 60px rgba(0,0,0,0.3);
+  color: #F5F5F7;
 }
 
 .hero .brand em {
   font-style: normal;
-  background: linear-gradient(135deg, var(--gold), var(--coral), var(--peach));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: #F5F5F7;
 }
 
 .hero .sub-brand {
   font-family: 'Noto Serif SC', serif;
-  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.6rem);
   font-weight: 400;
-  opacity: 0.9;
+  color: rgba(245,245,247,0.7);
   letter-spacing: 0.12em;
-  margin-bottom: 40px;
+  margin-bottom: 48px;
 }
 
 .hero .divider-line {
-  width: 60px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--coral));
-  margin: 0 auto 32px;
-  border-radius: 2px;
+  width: 36px;
+  height: 1px;
+  background: rgba(245,245,247,0.2);
+  margin: 0 auto 36px;
 }
 
 .hero .doc-title {
   font-size: clamp(0.85rem, 1.5vw, 1rem);
-  font-weight: 300;
-  opacity: 0.5;
+  font-weight: 400;
+  color: rgba(245,245,247,0.4);
   letter-spacing: 0.6em;
-  margin-bottom: 20px;
+  margin-bottom: 24px;
 }
 
 .hero .tagline {
   font-family: 'Noto Serif SC', serif;
-  font-size: clamp(1.1rem, 2vw, 1.4rem);
-  opacity: 0.7;
+  font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+  color: rgba(245,245,247,0.6);
   font-weight: 400;
-  margin-bottom: 56px;
+  margin-bottom: 64px;
   line-height: 1.6;
 }
 
@@ -151,16 +147,16 @@ body {
 
 .hero .confidential {
   padding: 6px 24px;
-  border: 1px solid rgba(255,255,255,0.2);
+  border: 1px solid rgba(245,245,247,0.15);
   border-radius: 100px;
   font-size: 0.7rem;
   letter-spacing: 0.25em;
-  opacity: 0.4;
+  color: rgba(245,245,247,0.3);
 }
 
 .hero .date {
   font-size: 0.8rem;
-  opacity: 0.35;
+  color: rgba(245,245,247,0.25);
   letter-spacing: 0.1em;
 }
 
@@ -173,23 +169,21 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 8px;
-  opacity: 0.3;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  color: rgba(245,245,247,0.2);
 }
 
 .scroll-hint .arrow {
-  width: 20px;
-  height: 20px;
-  border-right: 1.5px solid white;
-  border-bottom: 1.5px solid white;
-  transform: rotate(45deg);
-  animation: scrollDown 2s ease-in-out infinite;
+  width: 1px;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(245,245,247,0.4), rgba(245,245,247,0));
+  animation: scrollLine 2s ease-in-out infinite;
 }
 
-@keyframes scrollDown {
-  0%, 100% { opacity: 0.3; transform: rotate(45deg) translateY(0); }
-  50% { opacity: 1; transform: rotate(45deg) translateY(6px); }
+@keyframes scrollLine {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
 }
 
 nav.toc {
@@ -623,13 +617,22 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 }
 
 .section-break {
-  padding: 80px 0;
+  padding: 80px 24px;
   text-align: center;
-  background: linear-gradient(170deg, var(--navy) 0%, var(--purple-deep) 50%, #4A3AFF 100%);
+  background: #000000;
   color: white;
   margin: 0 -9999px;
   padding-left: 9999px;
   padding-right: 9999px;
+  position: relative;
+}
+
+.section-break::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(255,107,107,0.05) 0%, transparent 70%);
 }
 
 .section-break .quote {
@@ -640,24 +643,25 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
   max-width: 700px;
   margin: 0 auto;
   position: relative;
+  color: #F5F5F7;
 }
 
 .section-break .quote::before,
 .section-break .quote::after {
   content: '';
   display: block;
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--gold), var(--coral));
-  margin: 24px auto;
-  border-radius: 2px;
+  width: 36px;
+  height: 1px;
+  background: rgba(245,245,247,0.2);
+  margin: 28px auto;
 }
 
 .section-break .sub {
-  font-size: 0.9rem;
-  opacity: 0.5;
-  margin-top: 8px;
+  font-size: 0.85rem;
+  opacity: 0.3;
+  margin-top: 4px;
   letter-spacing: 0.1em;
+  position: relative;
 }
 
 .team-grid {
@@ -816,17 +820,16 @@ tbody tr:nth-child(even):hover { background: rgba(200,182,255,0.08); }
 footer {
   text-align: center;
   padding: 80px 24px;
-  background: var(--navy);
+  background: #000000;
   color: white;
   position: relative;
-  overflow: hidden;
 }
 
 footer::before {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 600px 400px at 50% 0%, rgba(123,104,238,0.15), transparent);
+  background: radial-gradient(ellipse 600px 300px at 50% 0%, rgba(255,107,107,0.04), transparent);
 }
 
 footer .brand-name {
@@ -835,25 +838,25 @@ footer .brand-name {
   font-size: 1.2rem;
   margin-bottom: 8px;
   position: relative;
+  color: #F5F5F7;
 }
 
 footer .tagline-small {
   font-size: 0.85rem;
-  opacity: 0.4;
+  color: rgba(245,245,247,0.3);
   letter-spacing: 0.15em;
 }
 
 footer .divider {
-  width: 40px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--coral), var(--gold));
+  width: 36px;
+  height: 1px;
+  background: rgba(245,245,247,0.15);
   margin: 24px auto;
-  border-radius: 2px;
   position: relative;
 }
 
 footer p {
-  color: rgba(255,255,255,0.3);
+  color: rgba(245,245,247,0.2);
   font-size: 0.8rem;
   position: relative;
 }
