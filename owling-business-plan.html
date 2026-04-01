@@ -1,0 +1,1056 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>偶灵 OWLING × 米洛酱 Milo — 商业计划书</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Noto+Sans+SC:wght@300;400;500;700&display=swap');
+
+:root {
+  --primary: #4A3AFF;
+  --primary-light: #7B6FFF;
+  --primary-bg: #F0EEFF;
+  --accent: #FF6B6B;
+  --accent-soft: #FFE8E8;
+  --text: #1A1A2E;
+  --text-secondary: #555570;
+  --bg: #FAFAFF;
+  --card-bg: #FFFFFF;
+  --border: #E8E8F0;
+  --shadow: 0 2px 20px rgba(74, 58, 255, 0.06);
+  --shadow-lg: 0 8px 40px rgba(74, 58, 255, 0.10);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(160deg, #1A1A2E 0%, #2D1B69 40%, #4A3AFF 100%);
+  color: white;
+  padding: 60px 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 30% 70%, rgba(255,255,255,0.03) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(255,107,107,0.08) 0%, transparent 40%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(-20px, 20px) rotate(2deg); }
+}
+
+.hero-content { position: relative; z-index: 1; }
+
+.hero .brand {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.hero .sub-brand {
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+  font-weight: 300;
+  opacity: 0.85;
+  letter-spacing: 0.15em;
+  margin-bottom: 32px;
+}
+
+.hero .doc-title {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  font-weight: 400;
+  opacity: 0.6;
+  letter-spacing: 0.4em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.hero .tagline {
+  font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+  opacity: 0.5;
+  font-style: italic;
+  margin-bottom: 48px;
+}
+
+.hero .confidential {
+  display: inline-block;
+  padding: 6px 20px;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  opacity: 0.5;
+}
+
+.hero .date {
+  margin-top: 20px;
+  font-size: 0.85rem;
+  opacity: 0.4;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0.3;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50% { transform: translateX(-50%) translateY(8px); }
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+nav.toc {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+}
+
+nav.toc .toc-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 12px 0;
+}
+
+nav.toc .toc-inner::-webkit-scrollbar { display: none; }
+
+nav.toc a {
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 6px 14px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+nav.toc a:hover {
+  color: var(--primary);
+  background: var(--primary-bg);
+}
+
+section {
+  padding: 80px 0;
+}
+
+section:first-of-type { padding-top: 60px; }
+
+h2.section-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+h2.section-title .num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--primary);
+  color: white;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+h3.sub-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text);
+  margin: 40px 0 16px;
+  padding-left: 16px;
+  border-left: 3px solid var(--primary);
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 2;
+  margin-bottom: 16px;
+}
+
+.card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px;
+  margin: 24px 0;
+  box-shadow: var(--shadow);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  margin: 24px 0;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  background: var(--card-bg);
+  box-shadow: var(--shadow);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+}
+
+thead th {
+  background: var(--primary-bg);
+  color: var(--primary);
+  font-weight: 600;
+  text-align: left;
+  padding: 14px 20px;
+  white-space: nowrap;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+}
+
+thead th:first-child { border-radius: 16px 0 0 0; }
+thead th:last-child { border-radius: 0 16px 0 0; }
+
+tbody td {
+  padding: 12px 20px;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  vertical-align: top;
+}
+
+tbody tr:hover { background: #FAFAFF; }
+
+tbody tr:last-child td:first-child { border-radius: 0 0 0 16px; }
+tbody tr:last-child td:last-child { border-radius: 0 0 16px 0; }
+
+.highlight-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.highlight-item {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.highlight-item:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.highlight-item .label {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.highlight-item .value {
+  font-family: 'Noto Serif SC', serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.highlight-item .note {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  margin-top: 4px;
+  opacity: 0.7;
+}
+
+.feature-list {
+  list-style: none;
+  margin: 24px 0;
+}
+
+.feature-list li {
+  padding: 20px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.feature-list li:hover { transform: translateX(4px); }
+
+.feature-list li strong {
+  display: block;
+  font-size: 1rem;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.feature-list li span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.privacy-list {
+  list-style: none;
+  margin: 24px 0;
+  counter-reset: privacy;
+}
+
+.privacy-list li {
+  counter-increment: privacy;
+  padding: 16px 20px 16px 56px;
+  position: relative;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.privacy-list li::before {
+  content: counter(privacy);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.timeline {
+  margin: 24px 0;
+  position: relative;
+  padding-left: 32px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--primary), var(--primary-light));
+  border-radius: 2px;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+  padding: 20px 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -29px;
+  top: 26px;
+  width: 12px;
+  height: 12px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 3px solid var(--primary-bg);
+}
+
+.timeline-item .phase {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 4px;
+}
+
+.timeline-item .time {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.timeline-item .tasks {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.timeline-item .milestone {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 4px 12px;
+  background: var(--primary-bg);
+  color: var(--primary);
+  border-radius: 100px;
+  font-size: 0.78rem;
+  font-weight: 500;
+}
+
+.quote-box {
+  text-align: center;
+  padding: 48px 32px;
+  margin: 48px 0;
+  background: linear-gradient(160deg, #1A1A2E, #2D1B69);
+  border-radius: 24px;
+  color: white;
+}
+
+.quote-box .quote {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  font-weight: 600;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+.quote-box .author {
+  font-size: 0.85rem;
+  opacity: 0.5;
+}
+
+.team-grid {
+  display: grid;
+  gap: 12px;
+  margin: 24px 0;
+}
+
+.team-card {
+  display: grid;
+  grid-template-columns: 140px 1fr auto;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 20px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+}
+
+.team-card .role {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.team-card .desc {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.team-card .status {
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.team-card .status.active {
+  background: #E8F5E9;
+  color: #2E7D32;
+}
+
+.team-card .status.recruiting {
+  background: #FFF3E0;
+  color: #E65100;
+}
+
+.flywheel {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin: 24px 0;
+}
+
+.flywheel-item {
+  padding: 24px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s;
+}
+
+.flywheel-item:hover { transform: translateY(-2px); }
+
+.flywheel-item .fw-title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+
+.flywheel-item p {
+  font-size: 0.85rem;
+  margin-bottom: 0;
+}
+
+.risk-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.risk-table .impact-high {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.risk-table .impact-med {
+  color: #FF9800;
+  font-weight: 500;
+}
+
+footer {
+  text-align: center;
+  padding: 60px 24px;
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--border);
+}
+
+footer .brand-name {
+  font-family: 'Noto Serif SC', serif;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1rem;
+  margin-bottom: 8px;
+}
+
+footer .divider {
+  width: 40px;
+  height: 2px;
+  background: var(--border);
+  margin: 16px auto;
+}
+
+@media (max-width: 640px) {
+  .highlight-grid { grid-template-columns: 1fr 1fr; }
+  .flywheel { grid-template-columns: 1fr; }
+  .team-card { grid-template-columns: 1fr; gap: 8px; }
+  .team-card .status { justify-self: start; }
+  nav.toc a { font-size: 0.72rem; padding: 5px 10px; }
+  .card, .table-wrap { border-radius: 12px; }
+  thead th:first-child, thead th:last-child,
+  tbody tr:last-child td:first-child, tbody tr:last-child td:last-child { border-radius: 0; }
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-content">
+    <div class="brand">偶灵 OWLING</div>
+    <div class="sub-brand">× 米洛酱 Milo</div>
+    <div class="doc-title">商 业 计 划 书</div>
+    <div class="tagline">有灵魂的智能陪伴玩偶</div>
+    <span class="confidential">CONFIDENTIAL</span>
+    <div class="date">2026 年 4 月</div>
+  </div>
+  <div class="scroll-hint">↓</div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#s1">01 执行摘要</a>
+    <a href="#s2">02 市场分析</a>
+    <a href="#s3">03 产品介绍</a>
+    <a href="#s4">04 商业模式</a>
+    <a href="#s5">05 财务预测</a>
+    <a href="#s6">06 市场策略</a>
+    <a href="#s7">07 隐私合规</a>
+    <a href="#s8">08 产品路线图</a>
+    <a href="#s9">09 团队</a>
+    <a href="#s10">10 风险应对</a>
+    <a href="#s11">11 愿景</a>
+  </div>
+</nav>
+
+<main>
+<div class="container">
+
+<section id="s1">
+  <h2 class="section-title"><span class="num">01</span>执行摘要</h2>
+  <div class="card">
+    <p>偶灵 OWLING 是一家以"有灵魂的智能陪伴"为核心理念的消费科技公司。我们的首发产品"米洛酱 Milo"是一款 12cm 毛绒智能玩偶，具备情感感知、全时记录、自然对话、人格养成与玩偶社交五大核心能力。它不是一个智能音箱，不是一个聊天机器人，而是一个会跟主人一起"长大"的情感伙伴。</p>
+    <p>我们将潮玩收藏的情感价值与 AI 陪伴的功能价值融合，开辟一个介于泊泊玛特和智能音箱之间的全新品类——<strong>"智能情感潮玩"</strong>。项目计划通过众筹验证需求，首批目标 5000 台，计划 18 个月内实现量产上市。</p>
+  </div>
+
+  <h3 class="sub-title">核心数据一览</h3>
+  <div class="highlight-grid">
+    <div class="highlight-item">
+      <div class="label">目标市场</div>
+      <div class="value" style="font-size:1rem;">智能情感潮玩</div>
+      <div class="note">潮玩 × AI 陪伴</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">首发产品</div>
+      <div class="value">米洛酱</div>
+      <div class="note">12cm 毛绒智能玩偶</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">售价策略</div>
+      <div class="value">¥699</div>
+      <div class="note">硬件 + 订阅 ¥29/月</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">硬件毛利</div>
+      <div class="value">~60%</div>
+      <div class="note">BOM ¥280</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">首年续订目标</div>
+      <div class="value">≥65%</div>
+      <div class="note">订阅继续率</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">首批目标</div>
+      <div class="value">5,000</div>
+      <div class="note">众筹台数</div>
+    </div>
+    <div class="highlight-item">
+      <div class="label">种子轮融资</div>
+      <div class="value">¥1,500万</div>
+      <div class="note">2026 Q2</div>
+    </div>
+  </div>
+</section>
+
+<section id="s2">
+  <h2 class="section-title"><span class="num">02</span>市场分析</h2>
+
+  <h3 class="sub-title">2.1 行业背景</h3>
+  <div class="card">
+    <p>全球潮玩市场规模已超 400 亿美元，泊泊玛特以单一 IP 系列 Labubu 就创造了数十亿元的年营收。与此同时，AI 陪伴赛道快速升温，以 Character.AI、Replika 为代表的虚拟陪伴产品月活用户均超千万级。但尚未有产品真正将<strong>"实体潮玩的情感连接"</strong>与<strong>"AI 的智能陪伴"</strong>融合在一起。</p>
+  </div>
+
+  <h3 class="sub-title">2.2 目标用户画像</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>用户群体</th><th>年龄</th><th>核心需求</th><th>消费能力</th></tr></thead>
+      <tbody>
+        <tr><td>潮玩收藏党</td><td>18-30</td><td>情感投射 + 社交货币</td><td>中高</td></tr>
+        <tr><td>独居青年</td><td>22-35</td><td>情感陪伴 + 生活助理</td><td>中</td></tr>
+        <tr><td>异地情侣/闺蜜</td><td>20-30</td><td>远程情感连接</td><td>中高</td></tr>
+        <tr><td>年轻父母</td><td>28-40</td><td>儿童陪伴 + 安全感</td><td>高</td></tr>
+        <tr><td>数码极客</td><td>20-35</td><td>前沿科技体验</td><td>高</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">2.3 竞争格局</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>维度</th><th>泊泊玛特</th><th>智能音箱</th><th>AI 虚拟伴侣</th><th>米洛酱</th></tr></thead>
+      <tbody>
+        <tr><td>实体情感连接</td><td>★★★★★</td><td>★★</td><td>★</td><td>★★★★★</td></tr>
+        <tr><td>智能对话</td><td>—</td><td>★★★</td><td>★★★★★</td><td>★★★★</td></tr>
+        <tr><td>人格养成</td><td>—</td><td>—</td><td>★★★</td><td>★★★★★</td></tr>
+        <tr><td>设备社交</td><td>—</td><td>—</td><td>★★</td><td>★★★★★</td></tr>
+        <tr><td>环境感知</td><td>—</td><td>★★</td><td>—</td><td>★★★★</td></tr>
+        <tr><td>收藏/潮玩价值</td><td>★★★★★</td><td>★</td><td>—</td><td>★★★★</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="card" style="border-left:3px solid var(--primary);">
+    <p>米洛酱的核心差异化在于：它是市场上唯一同时具备"实体情感连接 + 智能人格养成 + 设备社交网络"的产品。泊泊玛特证明了人们愿意为情感价值付费，我们在此基础上赋予玩偶"灵魂"。</p>
+  </div>
+</section>
+
+<section id="s3">
+  <h2 class="section-title"><span class="num">03</span>产品介绍</h2>
+
+  <h3 class="sub-title">3.1 产品定位</h3>
+  <div class="card">
+    <p>米洛酱是一只"会长大的毛绒伙伴"。它身上融合了六种角色：树洞日记本、随身记事本、世界见证者、私人智囊、成长伙伴、远方信使。每一只米洛酱出厂时都是一张白纸，在与主人的相处中逐渐生长出独一无二的性格。</p>
+  </div>
+
+  <h3 class="sub-title">3.2 核心功能</h3>
+  <ul class="feature-list">
+    <li>
+      <strong>👁 情感之眼</strong>
+      <span>双圆形 E-Ink 电子墨水屏嵌入眼部，可呈现 30+ 种眼神表情。不是预设动画循环播放，而是对环境和对话的真实情绪反应。E-Ink 超低功耗，常亮不费电。</span>
+    </li>
+    <li>
+      <strong>🎧 全时感知</strong>
+      <span>内置 4 麦克风阵列 + 120° 微型广角摄像头，持续感知周围环境。本地 AI 芯片实时处理，仅提取语义摘要，原始数据不上云。智能摘要自动提取关键时刻。</span>
+    </li>
+    <li>
+      <strong>💬 灵魂对话</strong>
+      <span>轻捏手掌开启对话模式。拥有独特声线，能主动分享观察、表达情绪、记住共同回忆。支持多语言，会学主人的口头禅。可作为思考伙伴帮主人梳理利弊、分析局势、提供建议。</span>
+    </li>
+    <li>
+      <strong>🌱 人格养成</strong>
+      <span>勇气/好奇/幽默/温柔/倔强五维度性格系统，在与主人交流中动态演化。相处 100 天解锁「灵魂共鸣」互动。支持"转世"机制，换新硬件可迁移灵魂数据。</span>
+    </li>
+    <li>
+      <strong>🤝 玩偶社交</strong>
+      <span>两只米洛酱 NFC 碰鼻配对。配对后可在授权范围内分享彼此主人的趣事，远程同步表情。隐私分级可细粒度设定分享边界。</span>
+    </li>
+  </ul>
+
+  <h3 class="sub-title">3.3 技术规格</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>项目</th><th>参数</th></tr></thead>
+      <tbody>
+        <tr><td>尺寸</td><td>约 12 × 8 × 8 cm</td></tr>
+        <tr><td>材质</td><td>食品级短绒毛外衣（可拆洗）+ 内部硬胶骨架</td></tr>
+        <tr><td>眼睛</td><td>双 1.2″ 圆形 E-Ink 电子墨水屏</td></tr>
+        <tr><td>芯片</td><td>边缘 AI SoC（NPU 算力 6 TOPS）</td></tr>
+        <tr><td>音频</td><td>4 麦克风阵列 + 2W 微型扬声器</td></tr>
+        <tr><td>视觉</td><td>120° 广角微型摄像头（鼻部）</td></tr>
+        <tr><td>连接</td><td>BLE 5.3 / Wi-Fi 6 / NFC</td></tr>
+        <tr><td>续航</td><td>感知模式 72h / 对话模式 8h</td></tr>
+        <tr><td>存储</td><td>64GB 本地 + 云端可选</td></tr>
+        <tr><td>充电</td><td>磁吸充电底座</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s4">
+  <h2 class="section-title"><span class="num">04</span>商业模式</h2>
+
+  <h3 class="sub-title">4.1 收入结构</h3>
+  <p>采用"硬件获客 + 订阅留存 + 社交裂变 + 周边变现"的复合模式：</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>收入流</th><th>价格</th><th>说明</th><th>毛利预估</th></tr></thead>
+      <tbody>
+        <tr><td>硬件本体</td><td>¥699</td><td>玩偶 + 基础 AI 功能 + App</td><td>~60%</td></tr>
+        <tr><td>灵魂订阅</td><td>¥29/月</td><td>高级对话 + 云端记忆 + 性格进化</td><td>~85%</td></tr>
+        <tr><td>社交通行证</td><td>¥9/月</td><td>玩偶社交 + 跨设备分享</td><td>~90%</td></tr>
+        <tr><td>衣橱系列</td><td>¥39 起</td><td>可替换毛绒外衣 + 数字表情包</td><td>~70%</td></tr>
+        <tr><td>IP 联名</td><td>定制价</td><td>限定款玩偶（自带背景故事和初始性格）</td><td>~65%</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">4.2 增长飞轮</h3>
+  <div class="flywheel">
+    <div class="flywheel-item">
+      <div class="fw-title">🌐 网络效应</div>
+      <p>每多一只玩偶入网，社交价值指数级增长。玩偶间的"友谊"成为用户推荐的天然动力——"你也买一只，让它们做朋友"。</p>
+    </div>
+    <div class="flywheel-item">
+      <div class="fw-title">🔒 情感锁定</div>
+      <p>性格养成系统让每只玩偶独一无二，迁移成本极高，用户粘性天然强于普通智能硬件。</p>
+    </div>
+    <div class="flywheel-item">
+      <div class="fw-title">🎨 IP 生态</div>
+      <p>开放 SDK 允许第三方开发"性格插件"和"记忆模组"，联名款自带特定背景故事和初始性格。</p>
+    </div>
+    <div class="flywheel-item">
+      <div class="fw-title">📊 数据壁垒</div>
+      <p>随时间积累的个人化记忆和性格数据，构成竞争对手无法复制的护城河。</p>
+    </div>
+  </div>
+</section>
+
+<section id="s5">
+  <h2 class="section-title"><span class="num">05</span>财务预测</h2>
+
+  <h3 class="sub-title">5.1 三年营收预测</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>指标</th><th>第 1 年</th><th>第 2 年</th><th>第 3 年</th></tr></thead>
+      <tbody>
+        <tr><td>硬件销量（台）</td><td>8,000</td><td>50,000</td><td>200,000</td></tr>
+        <tr><td>硬件收入</td><td>¥559万</td><td>¥3,495万</td><td>¥13,980万</td></tr>
+        <tr><td>订阅用户（累计）</td><td>5,200</td><td>37,500</td><td>160,000</td></tr>
+        <tr><td>订阅收入</td><td>¥90万</td><td>¥975万</td><td>¥4,800万</td></tr>
+        <tr><td>周边 + 联名收入</td><td>¥30万</td><td>¥350万</td><td>¥1,800万</td></tr>
+        <tr style="font-weight:700; color:var(--text); background:var(--primary-bg);">
+          <td>总营收</td><td>¥679万</td><td>¥4,820万</td><td>¥20,580万</td>
+        </tr>
+        <tr><td>毛利率</td><td>52%</td><td>61%</td><td>68%</td></tr>
+        <tr><td>净利润</td><td style="color:var(--accent);">-¥480万</td><td style="color:#2E7D32;">¥620万</td><td style="color:#2E7D32;">¥4,200万</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">5.2 单位经济模型（每台）</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>指标</th><th>金额</th><th>备注</th></tr></thead>
+      <tbody>
+        <tr><td>硬件售价</td><td>¥699</td><td></td></tr>
+        <tr><td>硬件 BOM 成本</td><td>-¥280</td><td>规模化后目标</td></tr>
+        <tr><td>硬件毛利</td><td>¥419</td><td>毛利率 60%</td></tr>
+        <tr><td>首年订阅收入</td><td>¥226</td><td>¥29×12×65% 继续率</td></tr>
+        <tr><td>周边收入（年均）</td><td>¥45</td><td>保守估计</td></tr>
+        <tr style="font-weight:700; color:var(--text); background:var(--primary-bg);">
+          <td>用户生命周期价值 (LTV)</td><td>¥1,280</td><td>按 2.5 年计算</td>
+        </tr>
+        <tr><td>获客成本 (CAC)</td><td>¥120</td><td>目标值</td></tr>
+        <tr style="font-weight:700; color:var(--primary);">
+          <td>LTV / CAC</td><td>10.7x</td><td>健康水平</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="sub-title">5.3 融资计划</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>轮次</th><th>时间</th><th>金额</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td>种子轮</td><td>2026 Q2</td><td>¥1,500万</td><td>原型开发 + 团队组建 + 众筹启动</td></tr>
+        <tr><td>天使轮</td><td>2026 Q4</td><td>¥3,000万</td><td>小批量量产 + 市场推广 + App 迭代</td></tr>
+        <tr><td>Pre-A 轮</td><td>2027 Q3</td><td>¥8,000万</td><td>规模化量产 + 渠道铺设 + IP 生态</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s6">
+  <h2 class="section-title"><span class="num">06</span>市场策略</h2>
+
+  <h3 class="sub-title">6.1 上市路径</h3>
+  <ul class="feature-list">
+    <li>
+      <strong>第一阶段：众筹引爆（P0）</strong>
+      <span>通过摩点/Kickstarter 双平台众筹，以"有灵魂的玩偶"概念片引爆社交传播。早鸟价 ¥499，目标 5000 台，同时验证产品需求和用户画像。</span>
+    </li>
+    <li>
+      <strong>第二阶段：圈层渗透（P1）</strong>
+      <span>KOL 种草 + 潮玩展会 + 小红书/抖音内容矩阵。重点打透"潮玩收藏"和"独居生活"两个圈层，用米洛酱的搞怪表情做社交传播利器。</span>
+    </li>
+    <li>
+      <strong>第三阶段：规模化（P2）</strong>
+      <span>入驻电商平台 + 线下渠道（潮玩店/书店/数码店），启动 IP 联名合作。</span>
+    </li>
+  </ul>
+
+  <h3 class="sub-title">6.2 营销策略</h3>
+  <div class="flywheel">
+    <div class="flywheel-item">
+      <div class="fw-title">👫 "两只才好玩"裂变机制</div>
+      <p>社交功能天然要求配对使用，买一只送一只或双人套装优惠，驱动裂变传播。</p>
+    </div>
+    <div class="flywheel-item">
+      <div class="fw-title">😎 表情包传播</div>
+      <p>米洛酱的搞怪表情自带传播属性，在社交平台发布动态表情包作为免费传播素材。</p>
+    </div>
+    <div class="flywheel-item">
+      <div class="fw-title">📖 "成长日记"内容生态</div>
+      <p>鼓励用户分享米洛酱的性格变化和趣事，形成 UGC 内容循环。</p>
+    </div>
+  </div>
+</section>
+
+<section id="s7">
+  <h2 class="section-title"><span class="num">07</span>隐私与合规</h2>
+  <div class="card" style="border-left:3px solid var(--accent);">
+    <p>隐私保护是米洛酱能否被市场接受的<strong>第一关键</strong>。我们采用"端侧优先"的隐私架构：</p>
+  </div>
+  <ol class="privacy-list">
+    <li>音频和视频数据由本地 NPU 实时处理，仅提取语义摘要上传云端（用户可关闭）</li>
+    <li>所有生物识别数据（声纹、面部特征）永不离开设备</li>
+    <li>侧面实体拨钮一键断开所有传感器供电（物理断电，非软件关闭）</li>
+    <li>所有记忆可随时查看、删除，支持一键导出</li>
+    <li>社交分享内容需双方授权，分享边界可细粒度设定</li>
+    <li>符合 GDPR / 《个人信息保护法》要求</li>
+    <li>儿童模式下对话经过额外安全过滤层</li>
+  </ol>
+  <div class="card">
+    <p>我们的理念是<strong>"主动建立信任，而非被动合规"</strong>。在产品包装和 App 中均提供透明的数据报告，让用户随时知道米洛酱"看到"和"记住"了什么。</p>
+  </div>
+</section>
+
+<section id="s8">
+  <h2 class="section-title"><span class="num">08</span>产品路线图</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <div class="phase">P0 · 种子</div>
+      <div class="time">0-6 月</div>
+      <div class="tasks">核心硬件原型 + 基础对话 + 情绪眼屏 + App MVP</div>
+      <span class="milestone">原型验证</span>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">P1 · 萌芽</div>
+      <div class="time">6-12 月</div>
+      <div class="tasks">24h 感知记录 + 性格养成 + NFC 社交 + 小批量众筹</div>
+      <span class="milestone">众筹 5000 台</span>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">P2 · 生长</div>
+      <div class="time">12-18 月</div>
+      <div class="tasks">云端同步 + 社交网络 + IP 联名 + 量产上市</div>
+      <span class="milestone">量产上市</span>
+    </div>
+    <div class="timeline-item">
+      <div class="phase">P3 · 繁荣</div>
+      <div class="time">18-36 月</div>
+      <div class="tasks">开放平台 SDK + 海外市场 + 新形态产品线</div>
+      <span class="milestone">平台化</span>
+    </div>
+  </div>
+</section>
+
+<section id="s9">
+  <h2 class="section-title"><span class="num">09</span>团队</h2>
+  <p>核心团队尚在组建中，以下为关键岗位规划：</p>
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="role">CEO / 产品</div>
+      <div class="desc">消费硬件 + AI 产品经验，懂潮玩文化</div>
+      <span class="status active">在任</span>
+    </div>
+    <div class="team-card">
+      <div class="role">CTO</div>
+      <div class="desc">边缘 AI + 嵌入式系统 + 音视频处理</div>
+      <span class="status recruiting">招募中</span>
+    </div>
+    <div class="team-card">
+      <div class="role">硬件负责人</div>
+      <div class="desc">IoT 硬件量产经验，熟悉供应链管理</div>
+      <span class="status recruiting">招募中</span>
+    </div>
+    <div class="team-card">
+      <div class="role">设计负责人</div>
+      <div class="desc">IP 角色设计 + 工业设计背景</div>
+      <span class="status recruiting">招募中</span>
+    </div>
+    <div class="team-card">
+      <div class="role">AI 工程师</div>
+      <div class="desc">LLM 微调 + 情感计算 + 端侧部署</div>
+      <span class="status recruiting">招募中</span>
+    </div>
+    <div class="team-card">
+      <div class="role">营销负责人</div>
+      <div class="desc">潮玩/消费品营销，熟悉众筹运营</div>
+      <span class="status recruiting">招募中</span>
+    </div>
+  </div>
+</section>
+
+<section id="s10">
+  <h2 class="section-title"><span class="num">10</span>风险与应对</h2>
+  <div class="table-wrap">
+    <table class="risk-table">
+      <thead><tr><th>风险</th><th>影响</th><th>应对策略</th></tr></thead>
+      <tbody>
+        <tr><td>隐私争议</td><td><span class="impact-high">高</span></td><td>端侧处理 + 物理开关 + 透明报告，主动建立信任</td></tr>
+        <tr><td>续航不足</td><td><span class="impact-med">中</span></td><td>E-Ink 超低功耗 + AI 芯片智能休眠 + 磁吸充电底座</td></tr>
+        <tr><td>硬件成本压力</td><td><span class="impact-med">中</span></td><td>众筹验证需求后再规模化，BOM 目标 ¥280</td></tr>
+        <tr><td>内容安全</td><td><span class="impact-high">高</span></td><td>儿童模式额外安全层 + 社交分享双方授权</td></tr>
+        <tr><td>AI 模型质量</td><td><span class="impact-med">中</span></td><td>端云协同架构，本地处理基础任务，云端处理复杂对话</td></tr>
+        <tr><td>市场教育成本</td><td><span class="impact-med">中</span></td><td>以"潮玩"而非"智能硬件"方式打入市场，降低认知门槛</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="s11">
+  <div class="quote-box">
+    <div class="quote">"让每一只玩偶都有灵魂，让每一份陪伴都有温度。"</div>
+  </div>
+  <div class="card">
+    <p>我们相信，AI 的终极价值不是替代人类，而是让人与人之间的连接更紧密。米洛酱是这个理念的第一个载体——它不是冷冰冰的设备，而是一个有温度的伙伴，帮你记住重要的事，惦记重要的人。</p>
+    <p>偶灵 OWLING 的目标是成为"智能情感潮玩"品类的开创者。米洛酱只是起点，未来我们将拓展更多形态、更多角色、更多场景，构建一个"有灵魂的玩偶宇宙"。</p>
+  </div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="brand-name">偶灵 OWLING · 让陪伴有灵魂</div>
+  <div class="divider"></div>
+  <p>商业计划书 · 机密文件</p>
+  <p style="margin-top:8px; opacity:0.5;">© 2026 OWLING Inc.</p>
+</footer>
+
+<script>
+document.querySelectorAll('nav.toc a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const top = target.offsetTop - 60;
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
+  });
+});
+
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('nav.toc a');
+
+function onScroll() {
+  let current = '';
+  sections.forEach(s => {
+    if (window.scrollY >= s.offsetTop - 120) current = s.id;
+  });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--primary)' : '';
+    a.style.background = a.getAttribute('href') === '#' + current ? 'var(--primary-bg)' : '';
+  });
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+onScroll();
+</script>
+
+</body>
+</html>
